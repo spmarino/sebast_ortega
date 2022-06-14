@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import ItemList from "../ItemList/itemList";
+import {useEffect, useState} from 'react'
+import ItemDetail from '../ItemDetail/ItemDetail'
+import { useParams } from 'react-router';
 
 const listaProductos = [
   {
@@ -52,29 +53,30 @@ const listaProductos = [
   },
 ];
 
-const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(false);
 
+
+const getItem = (id)=> { 
+  
+  return new Promise ((res,rej)=>{
+    setTimeout(()=>{
+    res(listaProductos.find((producto)=>+producto.id === +id));
+  },2000);
+});
+}
+const ItemDetailContainer =()=>{
+  const [producto, setProducto] = useState ({})
+  const {id} = useParams()
   useEffect(() => {
-    const promise = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(listaProductos);
-      }, 2000);
-    });
-    promise
-      .then((res) => {
-        setProductos(res);
-        setLoading(true);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    getItem(id)  
+      .then((resp)=> setProducto(resp))
+      .catch((err)=> console.log(err))
+  })
+    return (
+      <div>
+        <ItemDetail producto={producto}/>
+      </div>
+    )
+  
+}
 
-  return (
-    <div>
-      {!loading ? <p>...Cargando</p> : <ItemList productos={productos} />}
-    </div>
-  );
-};
-
-export default ItemListContainer;
+export default ItemDetailContainer
