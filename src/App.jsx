@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import Cart from './components/Cart/Cart'
-import ItemCount from './components/ItemCount/ItemCount'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 
@@ -13,6 +12,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
     <NavBar />
   <Routes>
     <Route index path="/" element={<ItemListContainer/>}/>
+    <Route index path="/category/:id" element={<ItemListContainer/>}/>
     <Route path="/detalle/:id" element={<ItemDetailContainer/>}/>
     <Route path="/cart" element={<Cart/>}/>
 

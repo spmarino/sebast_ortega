@@ -35,6 +35,16 @@ const NavBar = () => {
                 </NavLink>
                 </MenuItem>
                 <MenuItem>
+                <NavLink to ="/category/almacen">
+                 ALMACEN   
+                </NavLink>
+                </MenuItem>
+                <MenuItem>
+                <NavLink to ="/category/lacteos">
+                 LACTEOS   
+                </NavLink>
+                </MenuItem>
+                <MenuItem>
                 <NavLink to ="Contacto">
                 CONTACTO
                 </NavLink>
