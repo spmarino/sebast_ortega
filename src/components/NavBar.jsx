@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Menu,MenuItem, Wrapper } from './NavBarComponents'
 import CartWidget from './CartWidget/CartWidget'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // Chicos muy importante para esta entrega, 
 // es definir un state en el container y luego usando 
@@ -15,39 +15,39 @@ const NavBar = () => {
       
         <Wrapper>
             <Link to = "/Cart">
-              <button className='btn btn-outline-primary'>
+             
                 <CartWidget>
                 </CartWidget>
-              </button>
+              
             </Link>
            <Menu>
                 <MenuItem>
-                <NavLink to="/" className={({isActive})=>isActive? "text-red": "clase2"}>INICIO</NavLink>
+                <Link to="/">INICIO</Link>
                 </MenuItem>
                 <MenuItem>
-                <NavLink to="/sobrelaempresa">
+                <Link to="/sobrelaempresa">
                 SOBRE LA EMPRESA
-                </NavLink>
+                </Link>
                 </MenuItem>
                 <MenuItem>
-                <NavLink to ="/productos">
+                <Link to ="/productos">
                 PRODUCTOS      
-                </NavLink>
+                </Link>
                 </MenuItem>
                 <MenuItem>
-                <NavLink to ="/category/almacen">
+                <Link to ="/category/almacen">
                  ALMACEN   
-                </NavLink>
+                </Link>
                 </MenuItem>
                 <MenuItem>
-                <NavLink to ="/category/lacteos">
+                <Link to ="/category/lacteos">
                  LACTEOS   
-                </NavLink>
+                </Link>
                 </MenuItem>
                 <MenuItem>
-                <NavLink to ="Contacto">
+                <Link to ="Contacto">
                 CONTACTO
-                </NavLink>
+                </Link>
                 </MenuItem>
             </Menu>
         </Wrapper>

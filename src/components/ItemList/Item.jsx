@@ -17,7 +17,7 @@ const Item = ({ producto }) => {
         <img src={pictureUrl} alt="foto" className="w-50"/>
         <p>{descripcion}</p>
       </div>
-      <Contar stock={stock} inicial={1} />
+      
       </div>
       <div className="card-footer">
         <Link to={`/detalle/${id}`} >
