@@ -1,58 +1,32 @@
 import React from 'react'
-import { Container, Menu,MenuItem, Wrapper } from './NavBarComponents'
+import { Nav, Menu  } from './NavBarComponents'
 import CartWidget from './CartWidget/CartWidget'
-import { Link } from 'react-router-dom'
-
-// Chicos muy importante para esta entrega, 
-// es definir un state en el container y luego usando 
-// el set desde el contador pasar ese valor al container
+// import { Link } from 'react-router-dom'
+import { NavBarLink } from './NavBarComponents'
 
 
 
 const NavBar = () => {
   return (
-    <Container>
-      
-        <Wrapper>
-            <Link to = "/Cart">
-             
-                <CartWidget>
-                </CartWidget>
-              
-            </Link>
-           <Menu>
-                <MenuItem>
-                <Link to="/">INICIO</Link>
-                </MenuItem>
-                <MenuItem>
-                <Link to="/sobrelaempresa">
-                SOBRE LA EMPRESA
-                </Link>
-                </MenuItem>
-                <MenuItem>
-                <Link to ="/productos">
-                PRODUCTOS      
-                </Link>
-                </MenuItem>
-                <MenuItem>
-                <Link to ="/category/almacen">
-                 ALMACEN   
-                </Link>
-                </MenuItem>
-                <MenuItem>
-                <Link to ="/category/lacteos">
-                 LACTEOS   
-                </Link>
-                </MenuItem>
-                <MenuItem>
-                <Link to ="Contacto">
-                CONTACTO
-                </Link>
-                </MenuItem>
-            </Menu>
-        </Wrapper>
-    </Container>
-  )
+    <Nav>
+      <NavBarLink to="/Cart">
+        <CartWidget></CartWidget>
+      </NavBarLink>
+      <Menu>
+        <NavBarLink to="/">INICIO</NavBarLink>
+
+        <NavBarLink to="/sobrelaempresa">SOBRE LA EMPRESA</NavBarLink>
+
+        <NavBarLink to="/category/panaderia">PANADERIA</NavBarLink>
+
+        <NavBarLink to="/category/ferreteria">FERRETERIA</NavBarLink>
+
+        <NavBarLink to="/category/verduleria">VERDULERIA</NavBarLink>
+
+        <NavBarLink to="Contacto">CONTACTO</NavBarLink>
+      </Menu>
+    </Nav>
+  );
 }
 
 export default NavBar

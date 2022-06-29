@@ -1,23 +1,30 @@
-import Contar from "../ItemCount/ItemCount";
-import React from "react";
+import   {CartContext}   from "../contexts/CartContext";
+import Contar from "../ItemCount/ItemCount"; 
+import{React, useContext} from "react";
 
-const ItemDetail = ({ producto }) => {
-  const { nombre, marca, precio, stock } = producto;
 
+const ItemDetail = ({ item }) => {
+  const { nombre, marca, pictureUrl, precio, stock, inicial  } = item;
+  
+  const {AddToCart} = useContext(CartContext);
+  
   const onAdd = (cantidad) => {
-    alert(`se han comprado ${cantidad} productos`);
+    
+    AddToCart(item,cantidad );
   };
+
+
 
   return (
     <>
-      <div className="col-md6">
+      <div style={{margin:("30px","50px","50px","50px") }} className="col-md6">
         <h2>{nombre}</h2>
         <h3>{marca}</h3>
-        <h4>{precio}</h4>
-        <p>stock = {stock}</p>
-        
+        <img src={pictureUrl} alt={nombre} />
+        <h4>Precio ${precio}</h4>
+      <Contar stock={stock}  inicial={1} onAdd={onAdd} />
+        <p>Unidades disponibles = {stock}</p>
       </div>
-      <Contar stock={stock} inicial={1} onAdd={onAdd} />
     </>
   );
 };
