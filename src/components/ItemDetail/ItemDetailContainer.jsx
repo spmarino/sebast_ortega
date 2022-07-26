@@ -16,11 +16,15 @@ const ItemDetailContainer = () => {
       .then((resp) => setProducto({ id: resp.id, ...resp.data() }))
       .catch((err) => console.log(err))
       .finally(setCargando(false));
-  }, []);
+  }, [id]);
 
   return (
     <>
-      <ItemDetail item={producto} />
+      {
+      cargando?
+      <h3>Cargando</h3>
+      :<ItemDetail item={producto} />
+      }
     </>
   );
 };
